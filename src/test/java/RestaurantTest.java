@@ -36,7 +36,7 @@ class RestaurantTest {
         LocalTime currentTimeMock = LocalTime.parse("22:30:00");
         restaurant = this.getRestaurantTestObject();
         Restaurant restaurantSpy = Mockito.spy(restaurant);
-
+        // Failing test case
         Mockito.when(restaurantSpy.getCurrentTime()).thenReturn(currentTimeMock);
         Assertions.assertEquals(false, restaurantSpy.isRestaurantOpen());
         //WRITE UNIT TEST CASE HERE - Done

@@ -1,4 +1,3 @@
-import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -89,7 +88,7 @@ import static org.junit.jupiter.api.Assertions.*;
     // Failing case
 
      @Test
-     public void restaurant_menu_order_value_for_multiple_items_should_match_sum_of_item_values(){
+     public void restaurant_menu_order_value_for_multiple_items_selected_should_give_sum_of_all_item_values(){
          long sumValue_Expected = 30;
 
          restaurant = this.getRestaurantTestObject();

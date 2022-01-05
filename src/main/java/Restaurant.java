@@ -62,5 +62,13 @@ public class Restaurant {
     public String getName() {
         return name;
     }
-
+    public long getOrderValue(List<String> selectedItems) {
+        long sumValue = 0;
+        for(Item item: getMenu()){
+            if(selectedItems.contains(item.getName())){
+                sumValue += item.getPrice();
+            }
+        }
+        return sumValue;
+    }
 }

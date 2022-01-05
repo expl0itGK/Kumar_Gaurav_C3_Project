@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.BeforeEach;
+
 import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,34 +11,29 @@ class RestaurantServiceTest {
     Restaurant restaurant;
     //REFACTOR ALL THE REPEATED LINES OF CODE
 
+
     @BeforeEach
-    public void beforeEachTest(){
-        service= new RestaurantService();
-        service.addRestaurant("Gaurav's Restaurant", "New Delhi", LocalTime.of(10,00,00), LocalTime.of(22,00,00));
-
+    public void beforeEachTest() {
+        service = new RestaurantService();
+        service.addRestaurant("Gaurav's Restaurant", "New Delhi", LocalTime.of(10, 00, 00), LocalTime.of(22, 00, 00));
     }
-
-    //>>>>>>>>>>>>>>>>>>>>>>SEARCHING<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        //>>>>>>>>>>>>>>>>>>>>>>SEARCHING<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
     public void searching_for_existing_restaurant_should_return_expected_restaurant_object() throws restaurantNotFoundException {
-
-        Restaurant restaurantExpected = service.findRestaurantByName("Gaurav's Restaurant");
-
-        Restaurant restaurantActual = new Restaurant("Gaurav's Restaurant", "New Delhi", LocalTime.of(10,00,00), LocalTime.of(22,00,00));
-        Assertions.assertNotNull(restaurantExpected);
-        Assertions.assertEquals(restaurantExpected.getName(), restaurantActual.getName());
-
+            Restaurant restaurantExpected = service.findRestaurantByName("Gaurav's Restaurant");
+            Restaurant restaurantActual = new Restaurant("Gaurav's Restaurant", "New Delhi", LocalTime.of(10,00,00), LocalTime.of(22,00,00));
+            Assertions.assertNotNull(restaurantExpected);
+            Assertions.assertEquals(restaurantExpected.getName(), restaurantActual.getName());
         //WRITE UNIT TEST CASE HERE - Done
     }
 
     //You may watch the video by Muthukumaran on how to write exceptions in Course 3: Testing and Version control: Optional content
     @Test
     public void searching_for_non_existing_restaurant_should_throw_exception() throws restaurantNotFoundException {
-        String restaurantName = "Non Existing Gaurav's Restaurant";
-        Assertions.assertThrows(restaurantNotFoundException.class, ()->{
+            Assertions.assertThrows(restaurantNotFoundException.class, ()->{
 
-            Restaurant restaurantExpected = service.findRestaurantByName(restaurantName);
-        });
+                Restaurant restaurantExpected = service.findRestaurantByName("Kamal Kishor's - Non Existant Restaurant");
+            });
         //WRITE UNIT TEST CASE HERE - Done
     }
     //<<<<<<<<<<<<<<<<<<<<SEARCHING>>>>>>>>>>>>>>>>>>>>>>>>>>

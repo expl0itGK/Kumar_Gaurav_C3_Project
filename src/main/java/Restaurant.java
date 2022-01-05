@@ -63,13 +63,4 @@ public class Restaurant {
         return name;
     }
 
-    public long getOrderValue(List<String> selectedItems) {
-        long totValue = 0;
-        for(Item item: getMenu()){
-            if(selectedItems.contains(item.getName())){
-                totValue = totValue + item.getPrice();
-            }
-        }
-        return totValue;
-    }
 }
